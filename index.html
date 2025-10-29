@@ -11,17 +11,21 @@
 
   <!-- NAVBAR -->
 <nav class="navbar">
+  <!-- LOGO -->
   <div class="logo">
-    <img src="img/logo-dark.png" alt="Central Planning" class="logo-img" />
+    <img src="img/logo-dark.png" alt="Central Planning" class="logo-img logo-dark" />
+    <img src="img/logo-light.png" alt="Central Planning" style="height: 40px;" class="logo-img logo-light" />
   </div>
-  <ul class="nav-links">
+
+  <!-- MENU -->
+  <ul class="nav-links" id="nav-links">
     <li><a href="#daily">Daily</a></li>
     <li><a href="#weekly">Weekly</a></li>
     <li><a href="#campaign">Campaign</a></li>
     <li><a href="#monthly">Monthly</a></li>
-    
   </ul>
 
+  <!-- BOTÃO DARK/LIGHT -->
   <div class="theme-switch">
     <input type="checkbox" id="theme-toggle" />
     <label for="theme-toggle" class="switch"></label>
@@ -188,27 +192,26 @@
 
   <!-- SCRIPT -->
   <script>
-    // Alternância de tema dark/light
-    const toggle = document.getElementById('theme-toggle');
-    const body = document.body;
+  // === Alternância Dark/Light (já existente) ===
+  const toggle = document.getElementById('theme-toggle');
+  const body = document.body;
 
-    // Verifica tema salvo no navegador
-    if (localStorage.getItem('theme') === 'light') {
+  if (localStorage.getItem('theme') === 'light') {
+    body.classList.add('light-mode');
+    toggle.checked = true;
+  }
+
+  toggle.addEventListener('change', () => {
+    if (toggle.checked) {
       body.classList.add('light-mode');
-      toggle.checked = true;
+      localStorage.setItem('theme', 'light');
+    } else {
+      body.classList.remove('light-mode');
+      localStorage.setItem('theme', 'dark');
     }
+  });
 
-    // Evento de alternância
-    toggle.addEventListener('change', () => {
-      if (toggle.checked) {
-        body.classList.add('light-mode');
-        localStorage.setItem('theme', 'light');
-      } else {
-        body.classList.remove('light-mode');
-        localStorage.setItem('theme', 'dark');
-      }
-    });
-  </script>
+</script>
 
 </body>
 </html>
