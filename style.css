@@ -58,6 +58,9 @@ html {
   border: none;          /* remove linha */
   box-shadow: none;      /* remove linha/sombra */
   z-index: 1000;
+  flex-wrap: nowrap; /* 🔹 impede quebra de linha */
+  overflow-x: auto; /* 🔹 permite rolar horizontalmente se precisar */
+  white-space: nowrap; /* 🔹 mantém tudo numa linha só */
 }
 body.light-mode .navbar {
   background: rgba(255,255,255,0.95);
@@ -97,7 +100,8 @@ body.light-mode .navbar {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
+  flex-direction: row; /* 🔹 mantém horizontal */
 }
 
 .nav-links a {
@@ -105,6 +109,8 @@ body.light-mode .navbar {
   color: var(--text-color);
   font-weight: 600;
   transition: color 0.3s;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -499,6 +505,7 @@ background: linear-gradient(0deg, #FEA501 0%, #FEC601 100%);
 
   .nav-links {
     gap: 20px;
+    position: static;
   }
 
   .section {
@@ -524,6 +531,7 @@ background: linear-gradient(0deg, #FEA501 0%, #FEC601 100%);
     justify-content: center;
     gap: 16px;
     margin-top: 10px;
+    position: static;
   }
 
   .logo-img {
@@ -632,7 +640,7 @@ background: linear-gradient(0deg, #FEA501 0%, #FEC601 100%);
   .nav-links.active { display: flex; }
 
   .nav-links a {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     font-weight: 700;
   }
 }
