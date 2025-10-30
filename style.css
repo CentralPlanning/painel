@@ -61,6 +61,7 @@ html {
   flex-wrap: nowrap; /* 🔹 impede quebra de linha */
   overflow-x: auto; /* 🔹 permite rolar horizontalmente se precisar */
   white-space: nowrap; /* 🔹 mantém tudo numa linha só */
+  overflow: hidden;
 }
 body.light-mode .navbar {
   background: rgba(255,255,255,0.95);
